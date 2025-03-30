@@ -1,16 +1,29 @@
 package com.shopdevjava.springboot.infrastructure.adapter.web.dto;
 
 import java.time.LocalDateTime;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * DTO for user responses
  */
+@Schema(description = "Data Transfer Object for user response data")
 public class UserResponse {
+    @Schema(description = "Unique identifier of the user", example = "1")
     private Long id;
+    
+    @Schema(description = "User's first name", example = "John")
     private String firstName;
+    
+    @Schema(description = "User's last name", example = "Doe")
     private String lastName;
+    
+    @Schema(description = "User's email address", example = "john.doe@example.com")
     private String email;
+    
+    @Schema(description = "Timestamp when the user was created", example = "2023-01-01T10:15:30")
     private LocalDateTime createdAt;
+    
+    @Schema(description = "Timestamp when the user was last updated", example = "2023-01-02T10:15:30")
     private LocalDateTime updatedAt;
     
     // Constructors
