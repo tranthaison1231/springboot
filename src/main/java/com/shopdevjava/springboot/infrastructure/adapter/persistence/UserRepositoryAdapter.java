@@ -65,6 +65,16 @@ public class UserRepositoryAdapter implements UserRepository {
         return jpaUserRepository.existsByEmail(email);
     }
 
+    @Override
+    public void deleteAll() {
+        jpaUserRepository.deleteAll();
+    }
+    
+    @Override
+    public long count() {
+        return jpaUserRepository.count();
+    }
+
     /**
      * Maps a JPA entity to a domain model
      */

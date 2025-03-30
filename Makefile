@@ -95,6 +95,11 @@ test: check-java ## Run tests
 	@echo "🧪 Running tests..."
 	$(MAVEN_CMD) test
 
+# Test target to run tests
+test:
+	@echo "Running tests..."
+	@./scripts/run-tests.sh
+
 db-shell: ## Access PostgreSQL shell
 	@echo "🐘 Connecting to PostgreSQL shell..."
 	$(DOCKER_COMPOSE) exec db psql -U postgres -d springboot_db
