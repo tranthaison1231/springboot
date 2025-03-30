@@ -1,16 +1,27 @@
-package com.shopdevjava.springboot.dto;
+package com.shopdevjava.springboot.domain.model;
 
-public class UserRequest {
+import java.time.LocalDateTime;
+
+/**
+ * Domain model for User entity
+ */
+public class User {
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     
     // Constructors
-    public UserRequest() {
+    public User() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
     
-    public UserRequest(String firstName, String lastName, String email, String password) {
+    public User(String firstName, String lastName, String email, String password) {
+        this();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -18,6 +29,14 @@ public class UserRequest {
     }
     
     // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
@@ -48,5 +67,21 @@ public class UserRequest {
     
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 } 

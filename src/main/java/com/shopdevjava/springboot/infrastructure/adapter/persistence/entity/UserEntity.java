@@ -1,30 +1,50 @@
-package com.shopdevjava.springboot.dto;
+package com.shopdevjava.springboot.infrastructure.adapter.persistence.entity;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-public class UserDTO {
+/**
+ * JPA Entity for User
+ */
+@Entity
+@Table(name = "users")
+public class UserEntity {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(name = "first_name", nullable = false)
     private String firstName;
+    
+    @Column(name = "last_name", nullable = false)
     private String lastName;
+    
+    @Column(nullable = false, unique = true)
     private String email;
+    
+    @Column(nullable = false)
+    private String password;
+    
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+    
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
     
-    // Constructors
-    public UserDTO() {
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
     }
     
-    public UserDTO(Long id, String firstName, String lastName, String email, 
-                   LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
     }
     
     // Getters and Setters
+    
     public Long getId() {
         return id;
     }
@@ -55,6 +75,14 @@ public class UserDTO {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     public LocalDateTime getCreatedAt() {
