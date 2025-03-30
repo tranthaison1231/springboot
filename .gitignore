@@ -31,3 +31,60 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Logs ###
+logs/
+*.log
+nohup.out
+
+### Application Properties ###
+application-dev.properties
+application-prod.properties
+application-local.properties
+application-dev.yml
+application-prod.yml
+application-local.yml
+src/main/resources/application-*.properties
+src/main/resources/application-*.yml
+!src/main/resources/application.properties
+!src/main/resources/application.yml
+
+### OS specific files ###
+.DS_Store
+Thumbs.db
+desktop.ini
+
+### Maven ###
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+.flattened-pom.xml
+
+### Gradle ###
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+### Docker ###
+docker-volume/
+
+### Node ###
+node_modules/
+npm-debug.log
+yarn-error.log
+
+### Project-specific ###
+*.db
+*.h2.db
+*.trace.db
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+### Eclipse ###
+bin/
+tmp/
+
+### Flyway ###
+.flywaydb/
