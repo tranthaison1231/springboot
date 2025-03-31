@@ -88,3 +88,7 @@ tmp/
 
 ### Flyway ###
 .flywaydb/
+
+# Environment Variables
+.env
+!.env.example
